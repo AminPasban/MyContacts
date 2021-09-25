@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace MyContacts
 {
-    public partial class Form1 : Form
+    public partial class MyContactsForm : Form
     {
-        public Form1()
+        IMyContactsOperations contactsOperations;
+        public MyContactsForm()
         {
             InitializeComponent();
+            contactsOperations = new MyContactOperations();
+        }
+
+        private void MyContactsForm_Load(object sender, EventArgs e)
+        {
+            Contacts_GV.AutoGenerateColumns = false;
+            Contacts_GV.DataSource = contactsOperations.SelectAll();
         }
     }
 }
