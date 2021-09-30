@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 namespace MyContacts
 {
     interface IMyContactsOperations
-    {
+    {   
+        DataTable Select(int id);
+
         DataTable SelectAll();
 
-        DataTable Select(int id);
+        DataTable Search(string searchedString);
 
         bool Insert(string name, String family, String phone, String email, string address);
 
